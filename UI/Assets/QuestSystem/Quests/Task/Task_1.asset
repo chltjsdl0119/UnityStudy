@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83d8bad0d2054b3f8331980f8e1d61b, type: 3}
+  m_Name: Task_1
+  m_EditorClassIdentifier: 
+  id: KILL_MUSHROOM
+  description: "\uBC84\uC12F\uC744 \uC7A1\uC544\uB77C."
+  successCount: 300
+  initialSuccessValue: {fileID: 0}
+  ReceiveValue: 1
+  action: {fileID: 11400000, guid: acf9fb09eca994ad9aa9e6cf0ae31a81, type: 2}
+  targets:
+  - {fileID: 11400000, guid: 0c87fef73557a42dfacc3cf1bfe21ba4, type: 2}
+  category: {fileID: 11400000, guid: a0307cbefb1224da9a5ce40446f8c115, type: 2}
