@@ -8,7 +8,16 @@ public class Horse : MonoBehaviour
 {
     public float totalDistance => Vector3.Distance(transform.position, _startPos);
 
-    public bool doMove;
+    public bool doMove
+    {
+        get => _doMove;
+        set
+        {
+            _doMove = value;
+        }
+    }
+
+    private bool _doMove;
     
     // [SerializeField] : 해당 필드를 유니티 에디터의 인스펙터창에 노출시키기 위한 Attribute.
     // 객체를 가져다가 특정 데이터 포멧으로 바꾸는 것을 직렬화라고 한다.
