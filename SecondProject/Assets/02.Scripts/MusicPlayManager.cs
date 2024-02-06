@@ -10,17 +10,26 @@ public class MusicPlayManager : MonoBehaviour
 {
     public static MusicPlayManager instance;
 
-    public bool isPlaying;
+    public float speedGain = 1.0f;
 
+    public bool isPlaying;
     private VideoPlayer _videoPlayer;
     private Queue<NoteData> _queue;
-
     private float _timeMark;
+
+    private Dictionary<KeyCode, NoteSpawner> _spawners;
+    [SerializeField] private List<NoteSpawner> _spawnersList;
 
     private void Awake()
     {
         instance = this;
         _videoPlayer = GetComponent<VideoPlayer>();
+        _spawners = new Dictionary<KeyCode, NoteSpawner>();
+        
+        foreach (var spawner in _spawnersList)
+        {
+            _spawners.Add(spawner.key, spawner);
+        }
     }
 
     public void StartMusicPlay()
@@ -48,10 +57,11 @@ public class MusicPlayManager : MonoBehaviour
                 break;
             }
         }
+            
 
         if (_queue.Count <= 0)
         {
-            isPlaying = false; 
+            isPlaying = false;
         }
     }
 }

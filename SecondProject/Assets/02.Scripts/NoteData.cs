@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class NoteData : MonoBehaviour
+public struct NoteData
 {
     public KeyCode key;
     public float time;
