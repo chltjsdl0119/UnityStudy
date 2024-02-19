@@ -43,11 +43,19 @@ public static class CharacterStateWorkflowsDataSheet
 
             switch (current)
             {
-                
-                
+                case 0:
+                {
+                    machine.isDirectionChangeable = true;
+                    machine.isMovable = true;
+                    current++;
+                }
+                    break;
                 default:
                 {
                     // x 축 입력 절댓값이 0보다 크면 next = State.Move;
+                    if (Mathf.Abs(machine.horizontal) > 0)
+                        next = State.Move;
+                    
                     // Ground가 감지되지 않으면 next = State.Fall;
                 }
                     break;
@@ -70,9 +78,19 @@ public static class CharacterStateWorkflowsDataSheet
 
             switch (current)
             {
+                case 0:
+                {
+                    machine.isDirectionChangeable = true;
+                    machine.isMovable = true;
+                    current++;
+                }
+                    break;
                 default:
                 {
                     // x 축 입력 절댓값이 0이면 next = State.Idle;
+                    if (machine.horizontal == 0)
+                        next = State.Idle;
+                    
                     // Ground가 감지되지 않으면 next = State.Fall;
                 }
                     break;
