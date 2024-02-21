@@ -14,11 +14,13 @@ public static class CharacterStateWorkflowsDataSheet
         protected Transform transform;
         protected Rigidbody2D rigidbody;
         protected CapsuleCollider2D collider;
+        protected Animator animator;
         
         public WorkflowBase(CharacterMachine machine)
         {
             this.machine = machine;
             this.transform = machine.transform;
+            this.animator = machine._animator;
             this.rigidbody = machine.GetComponent<Rigidbody2D>();
             this.collider = machine.GetComponent<CapsuleCollider2D>();
         }
@@ -47,6 +49,7 @@ public static class CharacterStateWorkflowsDataSheet
                 {
                     machine.isDirectionChangeable = true;
                     machine.isMovable = true;
+                    animator.Play("Idle");
                     current++;
                 }
                     break;
@@ -67,7 +70,7 @@ public static class CharacterStateWorkflowsDataSheet
     
     public class Move : WorkflowBase
     {
-        public override State ID => State.Idle;
+        public override State ID => State.Move;
         
         public Move(CharacterMachine machine) : base(machine)
         {
@@ -82,6 +85,7 @@ public static class CharacterStateWorkflowsDataSheet
                 {
                     machine.isDirectionChangeable = true;
                     machine.isMovable = true;
+                    animator.Play("Move");
                     current++;
                 }
                     break;
